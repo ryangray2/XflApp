@@ -1,0 +1,346 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>XFL Sim</title>
+  <meta name="description" content="Trivia">
+  <meta name="author" content="Ryan Gray">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Teko:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Karla:wght@700&display=swap" rel="stylesheet">
+
+
+  <link rel="stylesheet" href="xflSim.css?v=1.0">
+</head>
+
+<body onload="start()">
+  <div class="container" id="startPage">
+    <div class="row text-center">
+      <div class="col-md-3 col-xs-1">
+      </div>
+      <div class="col-md-6 col-xs-10">
+        <img class="img-responsive center-block scale-up-center" id="initLogo" src="xflLogo.png">
+      </div>
+      <div class="col-md-3 col-xs-1">
+      </div>
+    </div>
+    <div class="row text-center">
+      <div class="col-md-3 col-xs-1">
+      </div>
+      <div class="col-md-6 col-xs-10">
+        <img class="img-responsive center-block slide-in-right" id="initLogo" src="simulator.png">
+      </div>
+      <div class="col-md-3 col-xs-1">
+      </div>
+    </div>
+    <div class="row text-center">
+      <div class="col-md-3 col-xs-1">
+      </div>
+      <div class="col-md-6 col-xs-10">
+        <p class="infoHead">By : Ryan Gray</p>
+      </div>
+      <div class="col-md-3 col-xs-1">
+      </div>
+    </div>
+    <!-- <div class="row text-center">
+      <div class="col-xs-12">
+        <h1>XFL Simulator</h1>
+      </div>
+    </div> -->
+    <div class="row text-center">
+      <div class="col-xs-12">
+        <INPUT type="image" id="enterButton"class="img-responsive center-block coolButton fade-in" src="enterButton.png" onclick="enter()">
+      </div>
+    </div>
+  </div>
+  <div class="container" id="infoPage">
+    <div class="row text-center">
+      <div class="col-xs-12">
+        <h1 class="infoHead">Info</h1>
+      </div>
+    </div>
+    <div class="row text-center">
+      <div class="col-md-3 col-xs-1">
+      </div>
+      <div class="col-xs-10 col-md-6">
+        <p class="infoP">Unfortunately, the 2020 XFL season had to be cut short. What might've happened if the season had gone on? Let's find out! You will choose a team and attempt to guide them to an XFL Championship. Good Luck!</p>
+      </div>
+      <div class="col-md-3 col-xs-1">
+      </div>
+    </div>
+    <div class="row text-center">
+      <div class="col-xs-12">
+        <INPUT type="image" class="img-responsive center-block coolButton" src="continueButton.png" onclick="infoButtonPressed()">
+      </div>
+    </div>
+  </div>
+  <div class="container" id="teamSelectPage">
+    <div class="row text-center">
+      <div class="col-xs-12">
+        <h1 class="infoHead">Pick a Team</h1>
+      </div>
+    </div>
+    <div class="row" id="teamsGoHere">
+
+    </div>
+  </div>
+  <div class="container" id="dashboardPage">
+    <div class="row text-center">
+      <div class="col-xs-12">
+        <img class="img-responsive center-block" id="test">
+      </div>
+    </div>
+    <div class="row text-center" id="ssBar">
+      <div class="col-xs-6" id="scheduleButton">
+        <h1 class="ssBarText">SCHEDULE</h1>
+      </div>
+      <div class="col-xs-6" id="standingsButton">
+        <h1 class="ssBarText">STANDINGS</h1>
+      </div>
+    </div>
+    <div class="container" id="schedulePage">
+      <div class="row text-center" id="scheduleGoesHere">
+      </div>
+    </div>
+    <div class="container" id="standingsPage">
+      <div class="row">
+        <div class="col-xs-12">
+          <h2 class="standConf">EAST</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-2">
+
+        </div>
+        <div class="col-xs-6">
+          <p class="standHead">Team</p>
+        </div>
+        <div class="col-xs-2 winsLosses">
+          <p class="standHead">Wins</p>
+        </div>
+        <div class="col-xs-2 winsLosses">
+          <p class="standHead">Losses</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-2">
+          <p class="standNum">1</p>
+        </div>
+        <div class="col-xs-6">
+          <p class="standStuff" id="e1Name">DC Defenders</p>
+        </div>
+        <div class="col-xs-2">
+          <p class="standStuff" id="e1Wins">5</p>
+        </div>
+        <div class="col-xs-2">
+          <p class="standStuff" id="e1Losses">0</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-2">
+          <p class="standNum">2</p>
+        </div>
+        <div class="col-xs-6">
+          <p class="standStuff" id="e2Name">DC Defenders</p>
+        </div>
+        <div class="col-xs-2">
+          <p class="standStuff" id="e2Wins">5</p>
+        </div>
+        <div class="col-xs-2">
+          <p class="standStuff" id="e2Losses">0</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-2">
+          <p class="standNum">3</p>
+        </div>
+        <div class="col-xs-6">
+          <p class="standStuff" id="e3Name">DC Defenders</p>
+        </div>
+        <div class="col-xs-2">
+          <p class="standStuff" id="e3Wins">5</p>
+        </div>
+        <div class="col-xs-2">
+          <p class="standStuff" id="e3Losses">0</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-2">
+          <p class="standNum">4</p>
+        </div>
+        <div class="col-xs-6">
+          <p class="standStuff" id="e4Name">DC Defenders</p>
+        </div>
+        <div class="col-xs-2">
+          <p class="standStuff" id="e4Wins">5</p>
+        </div>
+        <div class="col-xs-2">
+          <p class="standStuff" id="e4Losses">0</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <h2 class="standConf">WEST</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-2">
+
+        </div>
+        <div class="col-xs-6">
+          <p class="standHead">Team</p>
+        </div>
+        <div class="col-xs-2 winsLosses">
+          <p class="standHead">Wins</p>
+        </div>
+        <div class="col-xs-2 winsLosses">
+          <p class="standHead">Losses</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-2">
+          <p class="standNum">1</p>
+        </div>
+        <div class="col-xs-6">
+          <p class="standStuff" id="w1Name">DC Defenders</p>
+        </div>
+        <div class="col-xs-2">
+          <p class="standStuff" id="w1Wins">5</p>
+        </div>
+        <div class="col-xs-2">
+          <p class="standStuff" id="w1Losses">0</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-2">
+          <p class="standNum">2</p>
+        </div>
+        <div class="col-xs-6">
+          <p class="standStuff" id="w2Name">DC Defenders</p>
+        </div>
+        <div class="col-xs-2">
+          <p class="standStuff" id="w2Wins">5</p>
+        </div>
+        <div class="col-xs-2">
+          <p class="standStuff" id="w2Losses">0</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-2">
+          <p class="standNum">3</p>
+        </div>
+        <div class="col-xs-6">
+          <p class="standStuff" id="w3Name">DC Defenders</p>
+        </div>
+        <div class="col-xs-2">
+          <p class="standStuff" id="w3Wins">5</p>
+        </div>
+        <div class="col-xs-2">
+          <p class="standStuff" id="w3Losses">0</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-2">
+          <p class="standNum">4</p>
+        </div>
+        <div class="col-xs-6">
+          <p class="standStuff" id="w4Name">DC Defenders</p>
+        </div>
+        <div class="col-xs-2">
+          <p class="standStuff" id="w4Wins">5</p>
+        </div>
+        <div class="col-xs-2">
+          <p class="standStuff" id="w4Losses">0</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container" id="gamePage">
+    <div class="container" id="gameHead">
+      <div class="row text-center">
+        <h2 id="weekTitle"></h2>
+      </div>
+      <div class="row text-center">
+        <h2 id="gameTitle"></h2>
+      </div>
+    </div>
+    <div class="container" id="strategy">
+      <div class="row text-center">
+        <h4 class="strategy">Offensive Strategy</h4>
+      </div>
+      <div class="row text-center">
+        <div class="col-xs-3">
+          <p class="options">Air It Out</p>
+        </div>
+        <div class="col-xs-6">
+          <div class="slidecontainer">
+            <input type="range" min="-5" max="5" value="0" class="slider" id="offRange">
+          </div>
+        </div>
+        <div class="col-xs-3">
+          <p class="options">Establish the Run</p>
+        </div>
+      </div>
+      <div class="row text-center">
+        <h4 class="strategy">Defensive Strategy</h4>
+      </div>
+      <div class="row text-center">
+        <div class="col-xs-3">
+          <p class="options">Focus on Coverage</p>
+        </div>
+        <div class="col-xs-6">
+          <div class="slidecontainer">
+            <input type="range" min="-5" max="5" value="0" class="slider" id="defRange">
+          </div>
+        </div>
+        <div class="col-xs-3">
+          <p class="options">Stop the Run</p>
+        </div>
+      </div>
+      <div class="row text-center">
+        <INPUT type="image" class="img-responsive center-block coolButton" src="simButton.png" onclick="startGamePressed()">
+      </div>
+    </div>
+    <div class="container" id="gameplay">
+      <div class="row text-center" id="scoreRow">
+        <div class="col-xs-3">
+          <img src="tampa.png" id="gameUserLogo" class="gameLogo">
+        </div>
+        <div class="col-xs-6">
+          <h3 id="gameplayScore">42 - 37</h3>
+        </div>
+        <div class="col-xs-3">
+          <img src="seattle.png" id="gameCpuLogo" class="gameLogo">
+        </div>
+      </div>
+      <div class="container" id="scoringList">
+      </div>
+    </div>
+    <div class="container" id="atl">
+    </div>
+    <INPUT id="postDash" type="image" class="img-responsive center-block coolButton" src="nextButton.png" onclick="postDashboardButtonPressed()">
+  </div>
+  <div class="container" id="madePlayoffs">
+    <div class="row text-center">
+      <h3 id="madePlayoffsText" class="infoHead"></h3>
+    </div>
+    <div class="row text-center">
+      <INPUT type="image" id="playoffsNextButton" class="img-responsive center-block coolButton" src="nextButton.png" onclick="enterPlayoffs()">
+
+    </div>
+  </div>
+  <div class="container" id="playoffMatchups">
+    <div class="row text-center">
+      <h2 id="playoffHead" class="infoHead">XFL Conference Finals</h2>
+    </div>
+    <div class="container" id="playoffGames">
+    </div>
+  </div>
+  <script src="teams.js"></script>
+  <script src="xflSim.js" ></script>
+</body>
